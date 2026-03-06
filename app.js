@@ -99,4 +99,17 @@ lista.appendChild(li)
 
 })
 
+}import { db } from "./firebase.js"
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+async function cadastrarAluno(){
+
+let nome = document.getElementById("nomeAluno").value
+
+await addDoc(collection(db,"alunos"),{
+nome:nome
+})
+
+alert("Aluno salvo no banco de dados")
+
 }
