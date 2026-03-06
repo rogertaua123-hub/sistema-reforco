@@ -1,15 +1,19 @@
-import { db } from "./firebase.js"
+import { db } from "./firebase.js";
 import { collection, addDoc }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-async function salvarAluno(){
+window.salvarAluno = async function(){
 
-let nome = document.getElementById("nome").value
+let nome = document.getElementById("nome").value;
+let responsavel = document.getElementById("responsavel").value;
+let telefone = document.getElementById("telefone").value;
 
 await addDoc(collection(db,"alunos"),{
-nome:nome
-})
+nome:nome,
+responsavel:responsavel,
+telefone:telefone
+});
 
-alert("Aluno salvo")
+alert("Aluno cadastrado");
 
 }

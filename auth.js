@@ -1,19 +1,18 @@
-import { getAuth, signInWithEmailAndPassword }
+import { auth } from "./firebase.js";
+import { signInWithEmailAndPassword }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-const auth = getAuth();
+window.login = function(){
 
-function login(){
-
-let email = document.getElementById("email").value
-let senha = document.getElementById("senha").value
+let email = document.getElementById("email").value;
+let senha = document.getElementById("senha").value;
 
 signInWithEmailAndPassword(auth,email,senha)
 .then(()=>{
-window.location = "dashboard.html"
+window.location = "dashboard.html";
 })
 .catch(()=>{
-alert("Erro no login")
-})
+alert("Login inválido");
+});
 
 }
